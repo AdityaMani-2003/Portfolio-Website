@@ -1,0 +1,261 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "stack": "Stack",
+        "projects": "Projects",
+        "roadmap": "Roadmap",
+        "contact": "Contact"
+    },
+    "hero": {
+        "cta_primary": "Connect",
+        "cta_secondary": "Explore Works",
+        "stats": "<span class='highlight-text-tertiary'>Full-Stack</span> Software Engineer",
+        "scroll": "Scroll Down",
+        "title_top": "ADITYA MANI",
+        "title_bottom": "TRIPATHI"
+    },
+    "about": {
+        "title": "About",
+        "intro": "A developer who grows through self-driven projects and turns ideas into real products.",
+        "description": "A web development-focused mindset; building on both frontend and backend, learning new technologies through hands-on experimentation, and prioritizing maintainable code.",
+        "full": "Aditya Mani Tripathi is a Full-Stack Developer and Computer Science undergraduate at ABES Engineering College, Ghaziabad, maintaining a CGPA of 8.15/10.\n\nHe is best known for leading his team to a national-level victory at the Smart India Hackathon 2025 Grand Finale — India's most prestigious hackathon organized by AICTE and the Ministry of Education. Competing against over 10,000 teams from across the country, his team secured 1st place with \"Navjivan,\" a cross-platform AI-powered wellness application. Built using React Native, Node.js, Express.js, and MongoDB, the platform integrates intelligent recommendation engines that reduced habit relapse triggers by 40%, real-time background geofencing, SOS intervention alerts, and a robust backend with 10+ secured REST API endpoints using JWT authentication and bcrypt encryption. The application served over 200 beta users during its pilot phase.\n\nHis latest venture, Prepzo, is a production-grade SaaS platform for AI-driven interview preparation. Engineered with Next.js, TypeScript, React, PostgreSQL, and Supabase, it features secure Google OAuth authentication, Row-Level Security for granular multi-user data isolation, interactive analytics dashboards, personalized study roadmaps, PDF export capabilities, and real-time streaming — offering a comprehensive toolkit for job seekers to systematically prepare for technical interviews.\n\nBeyond building products, Aditya is a consistent problem solver with a LeetCode rating of 1700+ earned by solving over 200 Data Structures and Algorithms problems. He also reached the Semi-Finalist stage at the RIFT 2026 National Hackathon.\n\nHis technical repertoire spans the modern web ecosystem: React.js, Next.js, and React Native on the frontend; Node.js and Express.js powering backend services; MongoDB, PostgreSQL, and Supabase for data persistence; and Git, GitHub, VS Code, and Vercel forming his deployment pipeline. He is proficient in C++, JavaScript, TypeScript, and SQL, with strong fundamentals in Data Structures & Algorithms, Object-Oriented Programming, DBMS, Operating Systems, and Computer Networks.\n\nDriven by a philosophy of shipping real products over accumulating theoretical knowledge, Aditya approaches every engineering challenge with precision, scalability, and user-centric design at its core.",
+        "cta": "Read Full Version"
+    },
+    "manifesto": {
+        "items": [
+            "RADICAL TRANSPARENCY",
+            "INTENTIONAL MINIMALISM",
+            "ARCHITECTURAL INTEGRITY",
+            "FIRST PRINCIPLES THINKING",
+            "PERFORMANCE WITHOUT COMPROMISE",
+            "SCALABLE VISION"
+        ]
+    },
+    "stack": {
+        "title": "STACK",
+        "items": [
+            {
+                "title": "PROGRAMMING LANGUAGES",
+                "items": [
+                    {
+                        "name": "C++",
+                        "icon": "https://cdn.simpleicons.org/cplusplus/FFFFFF"
+                    },
+                    {
+                        "name": "JavaScript",
+                        "icon": "https://cdn.simpleicons.org/javascript/F7DF1E"
+                    },
+                    {
+                        "name": "TypeScript",
+                        "icon": "https://cdn.simpleicons.org/typescript/3178C6"
+                    },
+                    {
+                        "name": "SQL",
+                        "icon": "https://cdn.simpleicons.org/postgresql/FFFFFF"
+                    }
+                ]
+            },
+            {
+                "title": "FRONTEND DEVELOPMENT",
+                "items": [
+                    {
+                        "name": "React.js",
+                        "icon": "https://cdn.simpleicons.org/react/61DAFB"
+                    },
+                    {
+                        "name": "Next.js",
+                        "icon": "https://cdn.simpleicons.org/nextdotjs/FFFFFF"
+                    },
+                    {
+                        "name": "React Native",
+                        "icon": "https://cdn.simpleicons.org/react/61DAFB"
+                    },
+                    {
+                        "name": "HTML5",
+                        "icon": "https://cdn.simpleicons.org/html5/E34F26"
+                    },
+                    {
+                        "name": "CSS3",
+                        "icon": "https://cdn.simpleicons.org/css/1572B6"
+                    },
+                    {
+                        "name": "Tailwind CSS",
+                        "icon": "https://cdn.simpleicons.org/tailwindcss/06B6D4"
+                    }
+                ]
+            },
+            {
+                "title": "BACKEND DEVELOPMENT",
+                "items": [
+                    {
+                        "name": "Node.js",
+                        "icon": "https://cdn.simpleicons.org/nodedotjs/5FA04E"
+                    },
+                    {
+                        "name": "Express.js",
+                        "icon": "https://cdn.simpleicons.org/express/FFFFFF"
+                    },
+                    {
+                        "name": "REST APIs",
+                        "icon": "https://cdn.simpleicons.org/openapiinitiative/FFFFFF"
+                    },
+                    {
+                        "name": "JWT Auth",
+                        "icon": "https://cdn.simpleicons.org/jsonwebtokens/FFFFFF"
+                    }
+                ]
+            },
+            {
+                "title": "DATABASES",
+                "items": [
+                    {
+                        "name": "MongoDB",
+                        "icon": "https://cdn.simpleicons.org/mongodb/47A248"
+                    },
+                    {
+                        "name": "PostgreSQL",
+                        "icon": "https://cdn.simpleicons.org/postgresql/4169E1"
+                    },
+                    {
+                        "name": "Supabase",
+                        "icon": "https://cdn.simpleicons.org/supabase/3FCF8E"
+                    }
+                ]
+            },
+            {
+                "title": "TOOLS & PLATFORMS",
+                "items": [
+                    {
+                        "name": "Git",
+                        "icon": "https://cdn.simpleicons.org/git/F05032"
+                    },
+                    {
+                        "name": "GitHub",
+                        "icon": "https://cdn.simpleicons.org/github/FFFFFF"
+                    },
+                    {
+                        "name": "VS Code",
+                        "icon": "https://cdn.simpleicons.org/vscodium/007ACC"
+                    },
+                    {
+                        "name": "Vercel",
+                        "icon": "https://cdn.simpleicons.org/vercel/FFFFFF"
+                    }
+                ]
+            }
+        ]
+    },
+    "projects": {
+        "title": "PROJECTS",
+        "intro": "A collection of AI-driven platforms and full-stack applications.",
+        "scroll_text": "SCROLL TO EXPLORE",
+        "end_text": "END",
+        "items": [
+            {
+                "id": "1",
+                "title": "Navjivan",
+                "category": "AI-Powered Wellness Platform",
+                "year": "2025",
+                "description": "A scalable cross-platform wellness application using React Native and Node.js with MongoDB backend, serving 200+ beta users. Features AI recommendation modules that reduced habit relapse triggers by 40%, background geofencing, SOS intervention notifications, and 10+ secured REST API endpoints with JWT authentication. Secured 1st rank nationally at Smart India Hackathon 2025 among 10,000+ participating teams.",
+                "image": "/navjivan.jpg",
+                "demo": "https://github.com/AdityaMani-2003",
+                "repo": "https://github.com/AdityaMani-2003",
+                "stack": [
+                    "React Native",
+                    "TypeScript",
+                    "Node.js",
+                    "Express.js",
+                    "MongoDB",
+                    "JWT"
+                ]
+            },
+            {
+                "id": "2",
+                "title": "Prepzo",
+                "category": "AI Interview Preparation Platform",
+                "year": "2026",
+                "description": "A full-stack SaaS interview preparation platform built with Next.js, React, and PostgreSQL featuring secure Google OAuth authentication and server-side REST APIs. Implements Row-Level Security for multi-user data isolation across PostgreSQL tables, analytics dashboards, personalized study plans, PDF export functionality, and real-time streaming features.",
+                "image": "/prepzo.png",
+                "demo": "https://prepzo-one.vercel.app/",
+                "repo": "https://github.com/AdityaMani-2003",
+                "stack": [
+                    "Next.js",
+                    "TypeScript",
+                    "React",
+                    "PostgreSQL",
+                    "Supabase"
+                ]
+            }
+        ]
+    },
+    "roadmap": {
+        "title": "Timeline",
+        "description": "Key achievements and milestones.",
+        "items": [
+            {
+                "id": "01",
+                "year": "2025",
+                "description": "Secured 1st rank nationally at Smart India Hackathon 2025 (AICTE) among 10,000+ participating teams by building 'Navjivan', an AI-powered wellness platform serving 200+ beta users.",
+                "tags": [
+                    "Smart India Hackathon",
+                    "National Winner",
+                    "AI"
+                ]
+            },
+            {
+                "id": "02",
+                "year": "2026",
+                "description": "Reached Semi-Finalist stage at RIFT 26 National Hackathon.",
+                "tags": [
+                    "RIFT 2026",
+                    "Semi-Finalist",
+                    "Hackathon"
+                ]
+            },
+            {
+                "id": "03",
+                "year": "2026",
+                "description": "Reached a LeetCode rating of 1700+ by solving 200+ Data Structures and Algorithms problems.",
+                "tags": [
+                    "LeetCode",
+                    "DSA",
+                    "1700+ Rating"
+                ]
+            }
+        ]
+    },
+    "contact": {
+        "title": "CONTACT",
+        "description": "Open to new opportunities and full-time roles.",
+        "email": "tripathiadityamani2003@gmail.com",
+        "phone": "+91 7518133174",
+        "send_email": "Send an Email",
+        "direct_line": "Phone",
+        "all_rights_reserved": "ALL RIGHTS RESERVED.",
+        "modal_title": "Let's Connect",
+        "modal_description": "I am open to new opportunities and full-time roles. Drop me an email or connect on LinkedIn!"
+    },
+    "social": {
+        "title": "SOCIAL",
+        "items": [
+            {
+                "label": "GitHub",
+                "href": "https://github.com/AdityaMani-2003"
+            },
+            {
+                "label": "LinkedIn",
+                "href": "https://www.linkedin.com/in/adityamanitripathi/"
+            }
+        ]
+    },
+    "others": {
+        "about_project": "About the Project",
+        "technologies": "Technologies",
+        "live_demo": "Live Demo",
+        "source_code": "Source Code",
+        "project_details": "Details about",
+        "select_language": "Select Language",
+        "change_the_site_language": "Change the site language."
+    }
+}
