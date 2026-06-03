@@ -1,12 +1,11 @@
 "use client";
 
-import { motion, useTransform, useScroll, useSpring } from "framer-motion";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/language-context";
-import { useMediaQuery, BREAKPOINTS } from "@/hooks/use-media-query";
 import { BlurReveal } from "@/components/blur-reveal";
 import { ProjectModal } from "@/components/project-modal";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export type ProjectItem = {
     id: string;
@@ -22,170 +21,103 @@ export type ProjectItem = {
 
 export default function Projects() {
     const { content } = useLanguage();
-
-    const isDesktop = useMediaQuery(BREAKPOINTS.xl);
-
-    const targetRef = useRef<HTMLDivElement>(null);
-    const horizontalContainerRef = useRef<HTMLDivElement>(null);
-
-    const [measurements, setMeasurements] = useState({ scrollRange: 0, dynamicHeight: "auto" });
     const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-    useEffect(() => {
-        if (!isDesktop) {
-            setMeasurements({ scrollRange: 0, dynamicHeight: "auto" });
-            return;
-        }
-
-        const updateMeasurements = () => {
-            if (horizontalContainerRef.current) {
-                const totalWidth = horizontalContainerRef.current.scrollWidth;
-                const viewportW = window.innerWidth;
-                const range = totalWidth - viewportW;
-                const safeRange = range > 0 ? range : 0;
-
-                setMeasurements({
-                    scrollRange: safeRange,
-                    dynamicHeight: `${safeRange + window.innerHeight}px`,
-                });
-            }
-        };
-
-        updateMeasurements();
-
-        const timeout = setTimeout(updateMeasurements, 100);
-        const resizeObserver = new ResizeObserver(() => {
-            requestAnimationFrame(updateMeasurements);
-        });
-
-        if (horizontalContainerRef.current) {
-            resizeObserver.observe(horizontalContainerRef.current);
-        }
-
-        return () => {
-            clearTimeout(timeout);
-            resizeObserver.disconnect();
-        };
-    }, [isDesktop, content.projects.items]);
-
-    const { scrollYProgress } = useScroll({
-        target: targetRef,
-        offset: ["start start", "end end"],
-    });
-
-    const x = useTransform(scrollYProgress, [0, 1], [0, -measurements.scrollRange]);
-    const smoothX = useSpring(x, { stiffness: 400, damping: 60, restDelta: 0.5 });
+    const scrollTrackRef = useRef<HTMLDivElement>(null);
 
     const handleOpenProject = (project: ProjectItem) => {
         setSelectedProject(project);
         setIsModalOpen(true);
     };
 
+    const items: ProjectItem[] = content.projects.items;
+    const totalCards = items.length;
+
+    // useScroll bound to the tall scroll-track wrapper
+    const { scrollYProgress } = useScroll({
+        target: scrollTrackRef,
+        offset: ["start start", "end end"],
+    });
+
+    // Translate the horizontal strip from 0% to -100% of its overflow
+    const totalStripVw = totalCards * 80 + 50; // each card ~80vw + END block ~50vw
+    const translateEnd = -(totalStripVw - 100);
+
+    const x = useTransform(
+        scrollYProgress,
+        [0, 1],
+        ["0vw", `${translateEnd}vw`]
+    );
+
     return (
         <section
-            ref={targetRef}
             data-slot="projects"
-            className="relative py-16 md:py-24 lg:py-32 xl:py-0"
-            style={{ height: measurements.dynamicHeight }}
+            className="relative"
         >
+            {/* Title area – scrolls normally ABOVE the sticky section */}
+            <div className="py-16 md:py-24 lg:py-32 pb-0">
+                <div className="flex flex-col gap-4 px-container mb-0">
+                    <BlurReveal>
+                        <span className="title-counter">
+                            [003]
+                        </span>
+                    </BlurReveal>
+
+                    <BlurReveal>
+                        <h2 className="title">
+                            {content.projects.title}
+                        </h2>
+                    </BlurReveal>
+
+                    <BlurReveal>
+                        <p className="mt-4 text-muted-foreground text-lg">
+                            {content.projects.intro}
+                        </p>
+                    </BlurReveal>
+                </div>
+            </div>
+
+            {/* Scroll-track wrapper: its height drives the scroll range */}
             <div
-                className={`
-                    w-full 
-                    ${isDesktop
-                        ? "sticky top-0 h-screen flex items-center overflow-hidden"
-                        : "relative flex flex-col"
-                    }
-                `}
+                ref={scrollTrackRef}
+                style={{ height: `${(totalCards + 1) * 100}vh` }}
+                className="relative"
             >
+                {/* Sticky viewport container */}
+                <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col">
 
-                {!isDesktop ? (
-                    <>
-                        <div className="flex flex-col gap-4 px-container mb-10">
-                            <BlurReveal>
-                                <span className="title-counter">
-                                    [003]
-                                </span>
-                            </BlurReveal>
+                    {/* Header bar */}
+                    <div className="flex justify-between items-center px-container py-6 shrink-0">
+                        <span className="text-sm font-mono tracking-widest text-muted-foreground uppercase">
+                            {content.projects.title}
+                        </span>
+                        <span className="text-sm font-mono tracking-widest text-muted-foreground uppercase">
+                            {content.projects.scroll_text || "SCROLL TO EXPLORE"}
+                        </span>
+                    </div>
 
-                            <BlurReveal>
-                                <h2 className="title">
-                                    {content.projects.title}
-                                </h2>
-                            </BlurReveal>
-
-                            <BlurReveal>
-                                <p className="mt-4 text-muted-foreground text-lg">
-                                    {content.projects.intro}
-                                </p>
-                            </BlurReveal>
-                        </div>
-                        <div className="flex flex-col w-full max-w-full px-container gap-container">
-                            {content.projects.items.map((project: ProjectItem) => (
-                                <ProjectCard
-                                    key={project.id}
-                                    project={project}
-                                    onClick={() => handleOpenProject(project)}
-                                />
-                            ))}
-                        </div>
-                    </>
-                ) : (
+                    {/* Horizontal sliding strip */}
                     <motion.div
-                        ref={horizontalContainerRef}
-                        style={{ x: smoothX }}
-                        className="flex px-container w-max items-center"
+                        style={{ x }}
+                        className="flex items-stretch flex-1 will-change-transform"
                     >
-                        <div className="w-[60vw] xl:w-[40vw] shrink-0 flex flex-col justify-center">
-
-                            <div className="flex flex-col gap-4">
-
-                                <BlurReveal>
-                                    <span className="title-counter">
-                                        [003]
-                                    </span>
-                                </BlurReveal>
-
-                                <BlurReveal>
-                                    <h2 className="title">
-                                        {content.projects.title}
-                                    </h2>
-                                </BlurReveal>
-
-                                <BlurReveal>
-                                    <p className="mt-4 text-5xl font-light leading-tight">
-                                        {content.projects.intro}
-                                    </p>
-                                </BlurReveal>
-
-                                <BlurReveal>
-                                    <div className="mt-12 flex items-center gap-4">
-                                        <div className="h-px w-24 bg-border" />
-                                        <span className="text-sm font-mono text-foreground/40">
-                                            {content.projects.scroll_text}
-                                        </span>
-                                    </div>
-                                </BlurReveal>
-
-                            </div>
-
-                        </div>
-
-                        {content.projects.items.map((project: ProjectItem) => (
-                            <ProjectCard
+                        {/* Project cards */}
+                        {items.map((project: ProjectItem) => (
+                            <HorizontalProjectCard
                                 key={project.id}
                                 project={project}
                                 onClick={() => handleOpenProject(project)}
                             />
                         ))}
 
-                        <div className="w-[40vw] h-[70vh] shrink-0 flex flex-col justify-center items-center">
-                            <h3 className="text-[10vw] font-black tracking-tighter text-border">
-                                {content.projects.end_text}
-                            </h3>
+                        {/* END block */}
+                        <div className="shrink-0 flex items-center justify-center" style={{ width: "50vw" }}>
+                            <span className="text-[12vw] md:text-[10vw] font-black tracking-tighter uppercase text-foreground/10 select-none">
+                                {content.projects.end_text || "END"}
+                            </span>
                         </div>
                     </motion.div>
-                )}
+                </div>
             </div>
 
             <ProjectModal
@@ -197,26 +129,31 @@ export default function Projects() {
     );
 }
 
-const ProjectCard = React.memo(({ project, onClick }: { project: ProjectItem; onClick?: () => void }) => {
-    return (
-        <BlurReveal>
+/* ─── Horizontal Project Card ─────────────────────────────────────── */
+
+const HorizontalProjectCard = React.memo(
+    ({ project, onClick }: { project: ProjectItem; onClick?: () => void }) => {
+        return (
             <div
                 onClick={onClick}
-                className="group relative w-full xl:w-[45vw] aspect-4/3 shrink-0 xl:mx-[calc(var(--container-spacing)/2)] perspective-1000 cursor-pointer"
+                className="group relative shrink-0 cursor-pointer"
+                style={{ width: "80vw", padding: "0 1rem" }}
             >
-                <div className="relative w-full h-full overflow-hidden bg-muted border border-border/50 transition-all duration-700 ease-out group-hover:border-foreground/20">
+                <div className="relative w-full h-full overflow-hidden bg-muted border border-border/50 transition-all duration-700 ease-out group-hover:border-foreground/20 rounded-lg">
+                    {/* Background image */}
                     <div className="absolute inset-0 z-0">
                         <Image
                             src={project.image}
                             alt={project.title}
                             fill
-                            sizes="(max-width: 1280px) 100vw, 45vw"
+                            sizes="80vw"
                             loading="lazy"
                             className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 grayscale group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent" />
                     </div>
 
+                    {/* Content overlay */}
                     <div className="absolute inset-0 z-10 flex flex-col justify-between p-6 xl:p-12">
                         <div className="flex justify-between items-start">
                             <div className="overflow-hidden">
@@ -235,9 +172,10 @@ const ProjectCard = React.memo(({ project, onClick }: { project: ProjectItem; on
                             {project.title}
                         </h3>
                     </div>
-
                 </div>
             </div>
-        </BlurReveal>
-    );
-});
+        );
+    }
+);
+
+HorizontalProjectCard.displayName = "HorizontalProjectCard";
