@@ -94,9 +94,9 @@ export default function Projects() {
                     >
                         {/* Title Slide */}
                         <div 
-                            className="shrink-0 flex flex-col justify-center px-container w-[100vw] md:w-[calc(100vw-min(60vw,85vh))] xl:w-[calc(100vw-min(50vw,85vh))]" 
+                            className="shrink-0 flex flex-col justify-center px-container w-[100vw] md:w-[40vw] lg:w-[38vw]" 
                         >
-                            <div className="flex flex-col gap-4 max-w-2xl pr-8">
+                            <div className="flex flex-col gap-4 max-w-xl">
                                 <span className="title-counter">
                                     [003]
                                 </span>
@@ -144,7 +144,7 @@ const HorizontalProjectCard = React.memo(
         return (
             <div
                 onClick={onClick}
-                className="group flex flex-col justify-center relative shrink-0 cursor-pointer w-[90vw] md:w-[60vw] xl:w-[50vw] max-w-[85vh] px-2 md:px-4"
+                className="group flex flex-col justify-center relative shrink-0 cursor-pointer w-[90vw] md:w-[55vw] xl:w-[55vw] px-2 md:px-3"
             >
                 <div className="relative w-full aspect-square overflow-hidden bg-muted/10 border border-border/10 transition-all duration-700 ease-out group-hover:border-foreground/20 group-hover:bg-muted/20 rounded-xl shadow-sm">
                     {/* Background image */}
