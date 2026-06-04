@@ -94,18 +94,19 @@ export default function Projects() {
                     >
                         {/* Title Slide */}
                         <div 
-                            className="shrink-0 flex flex-col justify-center px-container w-[100vw] md:w-[40vw] lg:w-[38vw]" 
+                            className="shrink-0 flex flex-col justify-center pl-[6vw] md:pl-[6vw] pr-8 md:pr-12 w-[100vw] md:w-[42vw] lg:w-[42vw]" 
                         >
-                            <div className="flex flex-col gap-4 max-w-xl">
+                            <div className="flex flex-col gap-3">
                                 <span className="title-counter">
                                     [003]
                                 </span>
                                 <h2 className="title">
                                     {content.projects.title}
                                 </h2>
-                                <p className="mt-4 text-muted-foreground text-lg md:text-xl leading-relaxed">
-                                    {content.projects.intro}
-                                </p>
+                                <p 
+                                    className="mt-6 text-muted-foreground text-2xl md:text-[1.75rem] lg:text-[2rem] leading-snug tracking-tight"
+                                    dangerouslySetInnerHTML={{ __html: content.projects.intro }}
+                                />
                             </div>
                         </div>
 
