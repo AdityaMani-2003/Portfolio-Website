@@ -144,9 +144,9 @@ const HorizontalProjectCard = React.memo(
         return (
             <div
                 onClick={onClick}
-                className="group relative shrink-0 cursor-pointer w-[85vw] md:w-[45vw] xl:w-[35vw] px-2 md:px-4"
+                className="group flex flex-col justify-center relative shrink-0 cursor-pointer w-[85vw] md:w-[45vw] xl:w-[35vw] px-2 md:px-4"
             >
-                <div className="relative w-full h-full overflow-hidden bg-muted border border-border/50 transition-all duration-700 ease-out group-hover:border-foreground/20 rounded-lg">
+                <div className="relative w-full aspect-square overflow-hidden bg-muted border border-border/50 transition-all duration-700 ease-out group-hover:border-foreground/20 rounded-lg">
                     {/* Background image */}
                     <div className="absolute inset-4 md:inset-6 z-0 rounded-lg overflow-hidden bg-background/50 border border-border/30">
                         <Image
