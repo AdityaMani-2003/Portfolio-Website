@@ -144,43 +144,43 @@ const HorizontalProjectCard = React.memo(
         return (
             <div
                 onClick={onClick}
-                className="group flex flex-col justify-center relative shrink-0 cursor-pointer w-[90vw] md:w-[50vw] xl:w-[40vw] max-w-[80vh] px-3 md:px-6"
+                className="group flex flex-col justify-center relative shrink-0 cursor-pointer w-[90vw] md:w-[60vw] xl:w-[50vw] max-w-[85vh] px-2 md:px-4"
             >
-                <div className="relative w-full aspect-square overflow-hidden bg-muted/30 border border-border/20 transition-all duration-700 ease-out group-hover:border-foreground/30 group-hover:bg-muted/50 rounded-lg shadow-sm">
+                <div className="relative w-full aspect-square overflow-hidden bg-muted/10 border border-border/10 transition-all duration-700 ease-out group-hover:border-foreground/20 group-hover:bg-muted/20 rounded-xl shadow-sm">
                     {/* Background image */}
-                    <div className="absolute inset-4 md:inset-5 z-0 rounded-lg overflow-hidden bg-background/50 border border-border/10">
+                    <div className="absolute inset-1 md:inset-1.5 z-0 rounded-lg overflow-hidden bg-background/50 border border-border/5">
                         <Image
                             src={project.image}
                             alt={project.title}
                             fill
-                            sizes="(max-width: 768px) 90vw, (max-width: 1280px) 50vw, 40vw"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1280px) 60vw, 50vw"
                             loading="lazy"
                             className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 grayscale group-hover:grayscale-0"
                         />
-                        <div className="absolute inset-0 bg-linear-to-t from-background/95 via-background/50 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
 
                     {/* Content overlay */}
-                    <div className="absolute inset-4 md:inset-5 z-10 p-6 xl:p-8 pointer-events-none">
+                    <div className="absolute inset-1 md:inset-1.5 z-10 p-6 xl:p-8 pointer-events-none">
                         <div className="flex justify-between items-start w-full">
                             <div className="overflow-hidden">
-                                <span className="block text-xs xl:text-sm font-mono tracking-widest text-muted-foreground uppercase transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                                <span className="block text-xs xl:text-sm font-mono tracking-widest text-white/70 uppercase transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-100">
                                     {project.category}
                                 </span>
                             </div>
                             <div className="overflow-hidden">
-                                <span className="block text-xs xl:text-sm font-mono text-muted-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-200">
+                                <span className="block text-xs xl:text-sm font-mono text-white/70 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-200">
                                     {project.year}
                                 </span>
                             </div>
                         </div>
 
-                        <div className="absolute bottom-6 md:bottom-8 left-6 md:left-8 right-6 md:right-8">
-                            <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase text-foreground transition-opacity duration-500 delay-100">
+                        <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6">
+                            <h3 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[6rem] font-black tracking-tighter uppercase text-white drop-shadow-md transition-all duration-500">
                                 {project.title}
                             </h3>
                             <div className="overflow-hidden">
-                                <p className="text-sm md:text-base text-muted-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-300 opacity-0 group-hover:opacity-100 line-clamp-2 md:line-clamp-3 mt-2">
+                                <p className="text-sm md:text-base text-white/80 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-300 opacity-0 group-hover:opacity-100 line-clamp-2 md:line-clamp-3 mt-2 max-w-[80%]">
                                     {project.description}
                                 </p>
                             </div>
