@@ -119,7 +119,7 @@ export default function Projects() {
                         ))}
 
                         {/* END block */}
-                        <div className="shrink-0 flex items-center justify-center w-[100vw]">
+                        <div className="shrink-0 flex items-center justify-start w-[40vw] md:w-[25vw] pl-4 md:pl-12">
                             <span className="text-[12vw] md:text-[10vw] font-black tracking-tighter uppercase text-foreground/5 select-none">
                                 {content.projects.end_text || "END"}
                             </span>
@@ -161,8 +161,8 @@ const HorizontalProjectCard = React.memo(
                     </div>
 
                     {/* Content overlay */}
-                    <div className="absolute inset-4 md:inset-6 z-10 flex flex-col justify-between p-6 xl:p-8">
-                        <div className="flex justify-between items-start">
+                    <div className="absolute inset-4 md:inset-5 z-10 p-6 xl:p-8 pointer-events-none">
+                        <div className="flex justify-between items-start w-full">
                             <div className="overflow-hidden">
                                 <span className="block text-xs xl:text-sm font-mono tracking-widest text-muted-foreground uppercase transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-100">
                                     {project.category}
@@ -175,12 +175,12 @@ const HorizontalProjectCard = React.memo(
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-2 mt-auto">
-                            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase text-foreground opacity-20 group-hover:opacity-100 transition-opacity duration-500 delay-100 pointer-events-none">
+                        <div className="absolute bottom-6 md:bottom-8 left-6 md:left-8 right-6 md:right-8">
+                            <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase text-foreground transition-opacity duration-500 delay-100">
                                 {project.title}
                             </h3>
-                            <div className="overflow-hidden mt-2">
-                                <p className="text-sm md:text-base text-muted-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-300 opacity-0 group-hover:opacity-100 line-clamp-2 md:line-clamp-3">
+                            <div className="overflow-hidden">
+                                <p className="text-sm md:text-base text-muted-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-300 opacity-0 group-hover:opacity-100 line-clamp-2 md:line-clamp-3 mt-2">
                                     {project.description}
                                 </p>
                             </div>
