@@ -148,7 +148,7 @@
     },
     "projects": {
         "title": "PROJECTS",
-        "intro": "A collection of AI-driven platforms and full-stack applications.",
+        "intro": "A collection of <span class=\"font-serif italic\">experiments</span>, <span class=\"font-serif italic\">products</span>, and <span class=\"font-serif italic\">digital artifacts</span> forged in the <span class=\"font-bold text-foreground\">void</span>.",
         "scroll_text": "SCROLL TO EXPLORE",
         "end_text": "END",
         "items": [
