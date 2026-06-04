@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useLanguage } from "@/context/language-context";
 import { BlurReveal } from "@/components/blur-reveal";
 import { ProjectModal } from "@/components/project-modal";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 export type ProjectItem = {
     id: string;
@@ -56,11 +56,25 @@ export default function Projects() {
         offset: ["start start", "end end"],
     });
 
-    const x = useTransform(
+    const xRaw = useTransform(
         scrollYProgress,
         [0, 1],
-        ["0px", `-${scrollWidth}px`]
+        [0, -scrollWidth]
     );
+
+    // Apply spring physics for buttery smooth horizontal scrolling
+    const x = useSpring(xRaw, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001,
+    });
+
+    // Calculate a tighter scroll-track height based on actual content width
+    // We need enough vertical scroll distance to cover the horizontal content
+    // but not so much that there's dead space after END
+    const scrollTrackHeight = scrollWidth > 0 
+        ? `${Math.ceil((scrollWidth / (typeof window !== 'undefined' ? window.innerWidth : 1)) * 100 + 100)}vh`
+        : `${(totalCards + 1) * 100}vh`;
 
     return (
         <section
@@ -70,7 +84,7 @@ export default function Projects() {
             {/* Scroll-track wrapper: its height drives the scroll range */}
             <div
                 ref={scrollTrackRef}
-                style={{ height: `${(totalCards + 2) * 100}vh` }}
+                style={{ height: scrollTrackHeight }}
                 className="relative"
             >
                 {/* Sticky viewport container */}
@@ -119,8 +133,8 @@ export default function Projects() {
                         ))}
 
                         {/* END block */}
-                        <div className="shrink-0 flex items-center justify-end w-[40vw] md:w-[35vw] pr-8 md:pr-16">
-                            <span className="text-[12vw] md:text-[10vw] font-black tracking-tighter uppercase text-foreground/5 select-none">
+                        <div className="shrink-0 flex items-center justify-center w-[30vw] md:w-[25vw]">
+                            <span className="text-[10vw] md:text-[8vw] font-black tracking-tighter uppercase text-foreground/5 select-none">
                                 {content.projects.end_text || "END"}
                             </span>
                         </div>
