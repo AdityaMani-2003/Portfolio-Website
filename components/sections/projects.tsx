@@ -103,10 +103,9 @@ export default function Projects() {
                                 <h2 className="title">
                                     {content.projects.title}
                                 </h2>
-                                <p 
-                                    className="mt-6 text-muted-foreground text-2xl md:text-[1.75rem] lg:text-[2rem] leading-snug tracking-tight"
-                                    dangerouslySetInnerHTML={{ __html: content.projects.intro }}
-                                />
+                                <p className="mt-6 text-muted-foreground text-2xl md:text-[1.75rem] lg:text-[2rem] leading-snug tracking-tight">
+                                    {content.projects.intro}
+                                </p>
                             </div>
                         </div>
 
