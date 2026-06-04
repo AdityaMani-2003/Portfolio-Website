@@ -94,7 +94,7 @@ export default function Projects() {
                     >
                         {/* Title Slide */}
                         <div 
-                            className="shrink-0 flex flex-col justify-center px-container w-[90vw] md:w-[50vw] lg:w-[40vw]" 
+                            className="shrink-0 flex flex-col justify-center px-container w-[100vw] md:w-[calc(100vw-min(60vw,85vh))] xl:w-[calc(100vw-min(50vw,85vh))]" 
                         >
                             <div className="flex flex-col gap-4 max-w-2xl pr-8">
                                 <span className="title-counter">
