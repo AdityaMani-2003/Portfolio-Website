@@ -119,8 +119,8 @@ export default function Projects() {
                         ))}
 
                         {/* END block */}
-                        <div className="shrink-0 flex items-center justify-center w-[50vw]">
-                            <span className="text-[12vw] md:text-[10vw] font-black tracking-tighter uppercase text-foreground/10 select-none">
+                        <div className="shrink-0 flex items-center justify-center w-[100vw]">
+                            <span className="text-[12vw] md:text-[10vw] font-black tracking-tighter uppercase text-foreground/5 select-none">
                                 {content.projects.end_text || "END"}
                             </span>
                         </div>
@@ -144,20 +144,20 @@ const HorizontalProjectCard = React.memo(
         return (
             <div
                 onClick={onClick}
-                className="group flex flex-col justify-center relative shrink-0 cursor-pointer w-[85vw] md:w-[45vw] xl:w-[35vw] px-2 md:px-4"
+                className="group flex flex-col justify-center relative shrink-0 cursor-pointer w-[90vw] md:w-[50vw] xl:w-[40vw] max-w-[80vh] px-3 md:px-6"
             >
-                <div className="relative w-full aspect-square overflow-hidden bg-muted border border-border/50 transition-all duration-700 ease-out group-hover:border-foreground/20 rounded-lg">
+                <div className="relative w-full aspect-square overflow-hidden bg-muted/30 border border-border/20 transition-all duration-700 ease-out group-hover:border-foreground/30 group-hover:bg-muted/50 rounded-lg shadow-sm">
                     {/* Background image */}
-                    <div className="absolute inset-4 md:inset-6 z-0 rounded-lg overflow-hidden bg-background/50 border border-border/30">
+                    <div className="absolute inset-4 md:inset-5 z-0 rounded-lg overflow-hidden bg-background/50 border border-border/10">
                         <Image
                             src={project.image}
                             alt={project.title}
                             fill
-                            sizes="(max-width: 768px) 85vw, (max-width: 1280px) 45vw, 35vw"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1280px) 50vw, 40vw"
                             loading="lazy"
                             className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 grayscale group-hover:grayscale-0"
                         />
-                        <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-linear-to-t from-background/95 via-background/50 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
 
                     {/* Content overlay */}
