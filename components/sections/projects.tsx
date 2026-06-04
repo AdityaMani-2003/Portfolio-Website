@@ -69,11 +69,11 @@ export default function Projects() {
         restDelta: 0.001,
     });
 
-    // Calculate a tighter scroll-track height based on actual content width
-    // We need enough vertical scroll distance to cover the horizontal content
-    // but not so much that there's dead space after END
+    // Calculate scroll-track height based on actual content width
+    // The extra +200vh creates a dwell period where END stays visible
+    // before the sticky container releases into the next section
     const scrollTrackHeight = scrollWidth > 0 
-        ? `${Math.ceil((scrollWidth / (typeof window !== 'undefined' ? window.innerWidth : 1)) * 100 + 100)}vh`
+        ? `${Math.ceil((scrollWidth / (typeof window !== 'undefined' ? window.innerWidth : 1)) * 100 + 200)}vh`
         : `${(totalCards + 1) * 100}vh`;
 
     return (
