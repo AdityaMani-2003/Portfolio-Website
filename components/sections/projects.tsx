@@ -119,7 +119,7 @@ export default function Projects() {
                         ))}
 
                         {/* END block */}
-                        <div className="shrink-0 flex items-center justify-start pl-4 md:pl-12 pr-8 md:pr-16">
+                        <div className="shrink-0 flex items-center justify-end w-[40vw] md:w-[35vw] pr-8 md:pr-16">
                             <span className="text-[12vw] md:text-[10vw] font-black tracking-tighter uppercase text-foreground/5 select-none">
                                 {content.projects.end_text || "END"}
                             </span>
